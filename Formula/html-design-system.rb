@@ -1,4 +1,6 @@
 class HtmlDesignSystem < Formula
+  include Language::Python::Shebang
+
   desc "Build accessible HTML/CSS design systems with DTCG tokens and Storybook"
   homepage "https://github.com/AntonBronnfjell/tooling-agent-skill-markdown_html-design-system"
   url "https://github.com/AntonBronnfjell/tooling-agent-skill-markdown_html-design-system/archive/refs/tags/v1.3.0.tar.gz"
