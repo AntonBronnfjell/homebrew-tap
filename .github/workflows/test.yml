@@ -1,0 +1,26 @@
+name: test
+# Installs every formula from source, runs its test block and brew audit, on macOS and Linux.
+on:
+  push: { branches: [main] }
+  pull_request:
+  workflow_dispatch:
+permissions: { contents: read }
+
+jobs:
+  formula:
+    name: brew install + test · ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@master
+      - name: Tap this checkout
+        run: |
+          tap="$(brew --repository)/Library/Taps/antonbronnfjell/homebrew-tap"
+          rm -rf "$tap" && mkdir -p "$(dirname "$tap")" && cp -R "$GITHUB_WORKSPACE" "$tap"
+      - run: brew install --build-from-source antonbronnfjell/tap/html-design-system
+      - run: brew test antonbronnfjell/tap/html-design-system
+      - run: brew audit --strict --online antonbronnfjell/tap/html-design-system
+      - run: ds --help
