@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
-      - uses: Homebrew/actions/setup-homebrew@master
+      - uses: Homebrew/actions/setup-homebrew@main
       - name: Tap this checkout
         run: |
           tap="$(brew --repository)/Library/Taps/antonbronnfjell/homebrew-tap"
