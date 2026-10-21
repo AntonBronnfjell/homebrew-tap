@@ -15,11 +15,7 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
-      - uses: Homebrew/actions/setup-homebrew@main
-      - name: Tap this checkout
-        run: |
-          tap="$(brew --repository)/Library/Taps/antonbronnfjell/homebrew-tap"
-          rm -rf "$tap" && mkdir -p "$(dirname "$tap")" && cp -R "$GITHUB_WORKSPACE" "$tap"
+      - uses: Homebrew/actions/setup-homebrew@main   # checks out this repo and links it as the tap
       - run: brew install --build-from-source antonbronnfjell/tap/html-design-system
       - run: brew test antonbronnfjell/tap/html-design-system
       - run: brew audit --strict --online antonbronnfjell/tap/html-design-system
