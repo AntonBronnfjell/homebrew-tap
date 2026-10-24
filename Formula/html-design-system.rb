@@ -3,8 +3,8 @@ class HtmlDesignSystem < Formula
 
   desc "Build accessible HTML/CSS design systems with DTCG tokens and Storybook"
   homepage "https://github.com/AntonBronnfjell/tooling-agent-skill-markdown_html-design-system"
-  url "https://github.com/AntonBronnfjell/tooling-agent-skill-markdown_html-design-system/archive/refs/tags/v1.3.1.tar.gz"
-  sha256 "f2b07d5ba05e2c4d444b967f2ff05e942c8e6a8c385f859e03505bfc766c5ac5"
+  url "https://github.com/AntonBronnfjell/tooling-agent-skill-markdown_html-design-system/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "9dc2274ba84f2589643dec2deffe256e4082cc2f7c38fb1df592a155513914e5"
   license "MIT"
 
   depends_on "python@3.15"
